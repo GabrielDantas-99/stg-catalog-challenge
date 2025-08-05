@@ -75,7 +75,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
       const cartItems = data.map((item) => ({
         id: item.id,
-        product: item.products as Product,
+        product: Array.isArray(item.products) ? item.products[0] as Product : item.products as Product,
         quantity: item.quantity,
       }))
 
@@ -121,6 +121,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
       toast.success("Produto adicionado ao carrinho", {
         description: `${product.name} foi adicionado com sucesso`,
+        duration: 2000,
       })
     } catch (error) {
       console.error("Erro ao adicionar ao carrinho:", error)

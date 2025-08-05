@@ -87,16 +87,13 @@ export function ProductCard({ product }: ProductCardProps) {
             <span className="text-xs text-muted-foreground ml-1">(4.0)</span>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="text-lg font-semibold text-primary">{formatPrice(product.price)}</div>
-
-            {user && (
-              <Button size="sm" onClick={handleAddToCart} className="h-8 px-3">
-                <ShoppingCart className="h-3 w-3 mr-1" />
-                Adicionar
-              </Button>
-            )}
-          </div>
+          <div className="text-lg font-semibold text-primary">{formatPrice(product.price)}</div>
+          {user && (
+            <Button size="sm" onClick={handleAddToCart} className="h-8 w-full px-3">
+              <ShoppingCart className="h-3 w-3 mr-1" />
+              Adicionar
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>
