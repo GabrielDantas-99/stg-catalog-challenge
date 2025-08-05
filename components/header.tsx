@@ -19,6 +19,7 @@ import { useCart } from "@/contexts/cart-context"
 import { useWishlist } from "@/contexts/wishlist-context"
 import { useTheme } from "@/contexts/theme-context"
 import { searchCache } from "@/lib/cache"
+import Image from "next/image"
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -51,8 +52,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/catalog" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary">STG</div>
-            <div className="text-sm text-muted-foreground">Catálogo</div>
+            <Image src={theme === "dark" ? "/sgt_store_logo.png" : "/sgt_store_logo_light.png"} width={180} height={60} alt={"Logo Sgt Store"} />
           </Link>
 
           {/* Barra de Pesquisa */}
