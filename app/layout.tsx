@@ -11,7 +11,7 @@ import { Toaster } from "sonner"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "STG Catalog - E-commerce Moderno",
+  title: "STG Store - E-commerce Moderno",
   description: "Descubra produtos incríveis em nossa plataforma de e-commerce moderna",
   keywords: "e-commerce, compras, produtos, loja online",
 }
@@ -29,7 +29,7 @@ export default function RootLayout({
             <CartProvider>
               <WishlistProvider>
                 {children}
-                <Toaster position="top-right" richColors closeButton duration={4000} />
+                <Toaster position="top-right" richColors closeButton duration={2000} />
               </WishlistProvider>
             </CartProvider>
           </AuthProvider>
