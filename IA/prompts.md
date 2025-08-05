@@ -20,6 +20,10 @@
     <b>3º Passo:</b> 
         <a href="#copilot">Github Copilot</a>
     </li>
+    <li>
+    <b>4º Passo:</b> 
+        <a href="#design">Design.com</a>
+    </li>
 </ul>
 
 <div id="chatgpt">
@@ -280,6 +284,12 @@ A utilização do Github Copilot se deu através de sua extensão no ambiente de
 desenvolvimento integrado Visual Studio Code, para a correção de eventuais erros
 de código gerado pela IA <a href="#v0">v0</a> e otimização de atualizações
 necessárias durante a fase de manutenção do código.
+
+### 4 - Design.com
+A ferramenta de geração de imagens da <a href="https://design.com">Design.com</a>
+foi utilizada para a criação da logo e do favicon do sistema, afim de deixa-lo
+com um design ainda mais profissional e tecnológico, gerando autenticidade e boa
+experiência com o usuário
 ```
 
 </details>
@@ -339,5 +349,24 @@ button).
 </div>
 
 O GitHub Copilot foi integrado ao fluxo de trabalho por meio de sua extensão oficial no ambiente de desenvolvimento Visual Studio Code. Sua utilização teve como objetivo principal a correção de erros pontuais no código gerado pela ferramenta [v0](#v0), além de auxiliar na implementação de ajustes e melhorias contínuas durante a fase de manutenção. Essa integração contribuiu para um desenvolvimento mais fluido e eficiente, complementando o trabalho iniciado com as ferramentas anteriores.
+
+</div>
+
+<div id="design">
+
+<div style="display: flex; justify-content:space-between">
+
+### 4 - <span>Design.com</span>
+
+<a href="#menu">
+(Voltar para o topo)
+</a>
+</div>
+
+A ferramenta de geração de imagens da [Design.com](https://design.com) foi utilizada para a criação da logo e do favicon do sistema, com o objetivo de conferir um design mais profissional e tecnológico. Essa abordagem contribuiu para gerar autenticidade visual e proporcionar uma experiência mais positiva e confiável ao usuário.
+
+<div style="display: flex; justify-content:space-between">
+    <img src="../public/sgt_store_logo_light.png" />
+</div>
 
 </div>
