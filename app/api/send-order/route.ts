@@ -39,10 +39,13 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ message: "Pedido enviado com sucesso" });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Erro na API interna:", error);
     return NextResponse.json(
-      { message: "Erro interno", error: error.message },
+      {
+        message: "Erro interno",
+        error: error instanceof Error ? error.message : "Erro desconhecido",
+      },
       { status: 500 }
     );
   }

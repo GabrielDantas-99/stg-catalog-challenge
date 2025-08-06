@@ -26,19 +26,24 @@ export const themeCache = {
   },
 };
 
+type UserPreferences = {
+  theme?: string;
+  language?: string;
+};
+
 export const userPrefsCache = {
-  get: () => {
+  get: (): UserPreferences | null => {
     const prefs = Cookies.get(CACHE_KEYS.USER_PREFERENCES);
-    return prefs ? JSON.parse(prefs) : null;
+    return prefs ? (JSON.parse(prefs) as UserPreferences) : null;
   },
-  set: (preferences: any) => {
+  set: (preferences: UserPreferences) => {
     Cookies.set(CACHE_KEYS.USER_PREFERENCES, JSON.stringify(preferences), {
       expires: 30,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
     });
   },
-  remove: () => {
+  remove: (): void => {
     Cookies.remove(CACHE_KEYS.USER_PREFERENCES);
   },
 };
@@ -71,19 +76,23 @@ export const searchCache = {
   },
 };
 
+type CartData = {
+  items: Array<{ id: string; quantity: number; timestamp: number }>;
+};
+
 export const cartCache = {
   get: () => {
     const cart = Cookies.get(CACHE_KEYS.CART_CACHE);
     return cart ? JSON.parse(cart) : null;
   },
-  set: (cartData: any) => {
+  set: (cartData: CartData) => {
     Cookies.set(CACHE_KEYS.CART_CACHE, JSON.stringify(cartData), {
       expires: 7,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
     });
   },
-  remove: () => {
+  remove: (): void => {
     Cookies.remove(CACHE_KEYS.CART_CACHE);
   },
 };

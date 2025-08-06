@@ -44,7 +44,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Cache cart items whenever they change
   useEffect(() => {
     if (user && items.length > 0) {
-      cartCache.set({ items, timestamp: Date.now() })
+      cartCache.set({
+        items: items.map((item) => ({
+          id: item.id,
+          quantity: item.quantity,
+          timestamp: Date.now(),
+        })),
+      })
     }
   }, [items, user])
 
