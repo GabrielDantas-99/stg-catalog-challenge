@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import { Header } from "@/components/header/header"
 import { ProductGrid } from "@/components/product-grid"
@@ -20,7 +20,17 @@ export default function CatalogPage() {
   const searchParams = useSearchParams()
   const { user, loading: authLoading } = useAuth()
 
-  const loadProducts = useCallback(async () => {
+  useEffect(() => {
+    if (!authLoading) {
+      if (!user) {
+        window.location.href = "/auth/signin"
+        return
+      }
+      loadProducts()
+    }
+  }, [searchParams, sortBy, user, authLoading])
+
+  const loadProducts = async () => {
     setLoading(true)
     try {
       let query = supabase.from("products").select("*")
@@ -61,11 +71,7 @@ export default function CatalogPage() {
     } finally {
       setLoading(false)
     }
-  }, [searchParams, sortBy])
-
-  useEffect(() => {
-    loadProducts()
-  }, [loadProducts])
+  }
 
   if (authLoading) {
     return <div className="min-h-screen bg-background grid place-items-center">
