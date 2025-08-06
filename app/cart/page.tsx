@@ -13,11 +13,13 @@ import { useAuth } from "@/contexts/auth-context"
 import { formatPrice, generateWhatsAppMessage, createWhatsAppLink } from "@/lib/utils"
 import { supabase } from "@/lib/supabase"
 import { toast } from "sonner"
+import { useSendOrder } from "@/hooks/useSendOrder"
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, clearCart, total } = useCart()
   const { user } = useAuth()
   const [loading, setLoading] = useState(false)
+  const { sendOrder } = useSendOrder()
 
   const handleQuantityChange = async (productId: string, newQuantity: number) => {
     if (newQuantity < 1) return
@@ -33,7 +35,6 @@ export default function CartPage() {
 
     setLoading(true)
     try {
-      // 1. Criar o pedido no banco de dados
       const { data: order, error: orderError } = await supabase
         .from("orders")
         .insert({
@@ -45,7 +46,6 @@ export default function CartPage() {
 
       if (orderError) throw orderError
 
-      // 2. Criar os itens do pedido
       const orderItems = items.map((item) => ({
         order_id: order.id,
         product_id: item.product.id,
@@ -54,10 +54,8 @@ export default function CartPage() {
       }))
 
       const { error: itemsError } = await supabase.from("order_items").insert(orderItems)
-
       if (itemsError) throw itemsError
 
-      // 3. Preparar dados para WhatsApp
       const userName = user.user_metadata?.name || user.email || "Cliente"
       const userEmail = user.email || ""
 
@@ -67,14 +65,14 @@ export default function CartPage() {
         price: item.product.price,
       }))
 
-      const message = generateWhatsAppMessage(userName, userEmail, whatsappItems, total)
-      const whatsappLink = createWhatsAppLink(message)
+      await sendOrder({
+        userName,
+        userEmail,
+        items: whatsappItems,
+        total,
+      })
 
-      // 4. Limpar carrinho
       await clearCart()
-
-      // 5. Abrir WhatsApp
-      window.open(whatsappLink, "_blank")
 
       toast.success("Pedido enviado com sucesso!", {
         description: "Seu pedido foi registrado e enviado via WhatsApp",

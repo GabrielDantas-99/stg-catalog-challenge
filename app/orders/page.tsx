@@ -63,8 +63,18 @@ export default function OrdersPage() {
 
       if (error) throw error
 
-      // Implementação mais correta para setOrders
-      const ordersData = data || []
+      const ordersData = (data || []).map((order: any) => ({
+        id: order.id,
+        total: order.total,
+        created_at: order.created_at,
+        order_items: (order.order_items || []).map((item: any) => ({
+          quantity: item.quantity,
+          price: item.price,
+          products: Array.isArray(item.products)
+            ? item.products[0] || { name: "", image_url: "" }
+            : item.products,
+        })),
+      }))
       setOrders(ordersData)
 
       if (ordersData.length === 0) {
