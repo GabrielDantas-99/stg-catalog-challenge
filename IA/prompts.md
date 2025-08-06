@@ -335,6 +335,10 @@ button; back to catalog button; product reviews and comments; "Add to Wishlist"
 button).
 ```
 
+```
+Atualize a tela de login para um design mais tecnologico e inspirado na imagem em anexo. Utilize a cor primária #155dfb com variações e gradientes para tornar o design mais limpo e atual.
+```
+
 </div>
 
 <div id="copilot">
@@ -362,6 +366,10 @@ Crie subcomponentes para o componente header:
 - desktop actions
 - menu mobile (com o componente sheet do shadcn)
 Além disso, adapte o componente header para funcionar corretamente com os novos componentes
+```
+
+```
+Crie um AuthWrapper para reaproveitar os codigos repetidos dos components signin e signup
 ```
 
 </div>
