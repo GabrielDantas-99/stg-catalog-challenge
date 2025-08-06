@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import { Header } from "@/components/header"
+import { Header } from "@/components/header/header"
 import { ProductGrid } from "@/components/product-grid"
 import { ProductFilters } from "@/components/product-filters"
 import { Breadcrumbs } from "@/components/breadcrumbs"
