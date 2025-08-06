@@ -12,7 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { useAuth } from "@/contexts/auth-context"
 import { signUpSchema, type SignUpFormData } from "@/schemas/auth"
 import { toast } from "sonner"
-import { Eye, EyeOff, Mail, Lock, User, Smartphone, Shield, Zap, Globe } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, User } from 'lucide-react'
 import AuthWrapper from "@/components/auth/auth-wrapper"
 
 export default function SignUpPage() {

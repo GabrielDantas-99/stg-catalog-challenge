@@ -33,7 +33,7 @@ export default function AuthWrapper({ children, title, subtitle }: { children: R
                                 {/* Main illustration container */}
                                 <div className="relative w-full h-96 mb-8">
                                     {/* Background elements */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-3xl backdrop-blur-sm border border-white/20"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 rounded-3xl  border border-white/20"></div>
                                     {/* Floating cards and elements */}
                                     <div className="absolute top-8 left-8 w-24 h-16 bg-gradient-to-r from-[#155dfb] to-[#667eea] rounded-lg shadow-lg transform rotate-12 flex items-center justify-center">
                                         {/* Shield icon */}
