@@ -5,6 +5,8 @@
 Este projeto é um sistema de e-commerce moderno, funcional e responsivo, desenvolvido com **Next.js App Router** e **TypeScript**. O objetivo é oferecer uma experiência de compra eficiente, permitindo ao usuário navegar por produtos, adicionar itens ao carrinho e finalizar a compra de forma prática e inovadora: o checkout é realizado via **WhatsApp**, utilizando integração com a API **GZAPPY**.  
 A interface utiliza componentes do **ShadCN UI**, garantindo design consistente, acessibilidade e facilidade de customização.
 
+**Para acessar o sistema em produção acesse: [https://stg-catalog-challenge-git-main-gabrieldantas99s-projects.vercel.app](https://stg-catalog-challenge-git-main-gabrieldantas99s-projects.vercel.app)**
+
 ---
 
 ## Funcionalidades
