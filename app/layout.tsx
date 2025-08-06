@@ -5,8 +5,8 @@ import "./globals.css"
 import { AuthProvider } from "@/contexts/auth-context"
 import { CartProvider } from "@/contexts/cart-context"
 import { WishlistProvider } from "@/contexts/wishlist-context"
-import { ThemeProvider } from "@/contexts/theme-context"
 import { Toaster } from "sonner"
+import { ThemeProvider } from "@/providers/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="light">
           <AuthProvider>
             <CartProvider>
               <WishlistProvider>

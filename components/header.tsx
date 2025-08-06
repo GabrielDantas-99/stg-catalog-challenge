@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
-import { Search, ShoppingCart, Heart, User, Menu, Sun, Moon } from "lucide-react"
+import { Search, ShoppingCart, Heart, User, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -17,9 +17,10 @@ import {
 import { useAuth } from "@/contexts/auth-context"
 import { useCart } from "@/contexts/cart-context"
 import { useWishlist } from "@/contexts/wishlist-context"
-import { useTheme } from "@/contexts/theme-context"
 import { searchCache } from "@/lib/cache"
 import Image from "next/image"
+import { useTheme } from "next-themes"
+import SwitcherTheme from "./switcher-theme"
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -33,16 +34,6 @@ export function Header() {
     if (searchQuery.trim()) {
       searchCache.add(searchQuery.trim())
       window.location.href = `/catalog?search=${encodeURIComponent(searchQuery)}`
-    }
-  }
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark")
-    } else if (theme === "dark") {
-      setTheme("system")
-    } else {
-      setTheme("light")
     }
   }
 
@@ -72,9 +63,7 @@ export function Header() {
           {/* Ações */}
           <div className="flex items-center space-x-4">
             {/* Alternador de Tema */}
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
+            <SwitcherTheme />
 
             {/* Lista de Desejos */}
             {user && (
