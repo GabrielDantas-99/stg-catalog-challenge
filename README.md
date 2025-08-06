@@ -76,6 +76,7 @@ Ajustes finais, integrações específicas, lógica de negócio, configurações
 ## Arquitetura do Projeto
 
 A estrutura de pastas foi pensada para facilitar a escalabilidade e a reutilização de código.
+```
 sgt-catalog-challenge/
 ├── app/ # Rotas e páginas (Next.js App Router)
 │ ├── auth/ # Fluxos de autenticação (signin, signup, reset)
@@ -92,11 +93,11 @@ sgt-catalog-challenge/
 ├── public/ # Imagens e arquivos estáticos
 ├── scripts/ # Scripts de seed e utilitários SQL
 ├── doc/
-│ └── screenshots/ # Imagens para documentação
+│ └── IA/ # Imagens para documentação de prompts
 ├── styles/ # Estilos globais e configurações do Tailwind
 ├── .env.local.example # Exemplo de variáveis de ambiente
 └── README.md
-
+```
 **Responsabilidade das principais pastas:**
 
 - **app/**: Páginas e rotas do Next.js.
