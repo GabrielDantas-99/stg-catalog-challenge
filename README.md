@@ -58,7 +58,7 @@ As escolhas priorizam produtividade, escalabilidade, acessibilidade e facilidade
 
 ## IA Utilizada
 
-Acessar documentação dedicada à esta seção no diretório [./doc/IA/prompts.md]('./doc/IA/prompts.md')
+Acessar documentação dedicada à esta seção no arquivo [doc/IA/prompts.md](https://github.com/GabrielDantas-99/stg-catalog-challenge/blob/develop/doc/IA/prompts.md).
 
 - **ChatGPT (OpenAI):** Geração de código, sugestões de arquitetura, escrita de textos e README, automação de testes e refatoração.
 - **GitHub Copilot:** Auxílio na escrita de código, geração de hooks, componentes e funções utilitárias.
