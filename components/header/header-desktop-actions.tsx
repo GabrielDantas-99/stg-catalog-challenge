@@ -3,11 +3,12 @@
 import { useAuth } from "@/contexts/auth-context"
 import { useCart } from "@/contexts/cart-context"
 import { useWishlist } from "@/contexts/wishlist-context"
-import { Heart, Badge, ShoppingCart, User } from "lucide-react"
+import { Heart, ShoppingCart, User } from "lucide-react"
 import SwitcherTheme from "../switcher-theme"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu"
+import { Badge } from "../ui/badge"
 
 function HeaderDesktopActions() {
     const { user, signOut } = useAuth()
@@ -49,7 +50,7 @@ function HeaderDesktopActions() {
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-56">
-                        <div className="px-2 py-1.5 text-sm font-medium">{user.user_metadata?.name || user.email}</div>
+                        <div className="px-2 py-1.5 text-sm font-medium">Olá, {user.user_metadata?.name || user.email}</div>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem asChild>
                             <Link href="/orders">Histórico de Pedidos</Link>

@@ -31,7 +31,6 @@ export function Header() {
             <Image src={theme === "dark" ? "/sgt_store_logo.png" : "/sgt_store_logo_light.png"} width={180} height={60} alt={"Logo Sgt Store"} />
           </Link>
 
-          {/* Barra de Pesquisa Desktop */}
           <HeaderSearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -39,16 +38,13 @@ export function Header() {
             className="hidden md:flex flex-1 max-w-md mx-8"
           />
 
-          {/* Ações Desktop */}
           <HeaderDesktopActions />
 
-          {/* Botão Menu Mobile */}
           <div className="flex md:hidden items-center">
             <HeaderMobileMenu />
           </div>
         </div>
 
-        {/* Barra de Pesquisa Mobile */}
         <div className="md:hidden pb-4">
           <HeaderSearchBar
             searchQuery={searchQuery}

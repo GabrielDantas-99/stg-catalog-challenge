@@ -1,3 +1,5 @@
+"use client";
+
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
@@ -17,33 +19,34 @@ const inputVariants = tv({
 });
 
 export default function SwitcherTheme() {
-    const [theme, setStateTheme] = useState("light");
-    const { setTheme } = useTheme();
+    const { theme, setTheme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setTheme(theme);
-    }, [, setTheme, theme]);
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
+    const isLight = resolvedTheme === "light";
 
     return (
         <div className="flex items-center justify-center">
-            <label
-                className="flex items-center cursor-pointer"
-                htmlFor="theme-toggle"
-            >
+            <label className="flex items-center cursor-pointer" htmlFor="theme-toggle">
                 <div className="w-14 h-8 relative rounded-3xl bg-background border border-icon-color">
                     <input
                         type="checkbox"
                         id="theme-toggle"
                         className="hidden"
-                        onChange={() => setStateTheme(theme === "light" ? "dark" : "light")}
-                        checked={theme === "light"}
+                        onChange={() => setTheme(isLight ? "dark" : "light")}
+                        checked={isLight}
                     />
                     <div
                         className={inputVariants({
-                            variant: theme === "light" ? "light" : "dark",
+                            variant: isLight ? "light" : "dark",
                         })}
                     >
-                        {theme === "light" ? (
+                        {isLight ? (
                             <SunIcon className="fill-icon-color size-5" />
                         ) : (
                             <MoonIcon className="fill-icon-color size-5" />
