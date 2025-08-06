@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-commerce Next.js com Checkout via WhatsApp
 
-## Getting Started
+## Sobre o Projeto
 
-First, run the development server:
+Este projeto é um sistema de e-commerce moderno, funcional e responsivo, desenvolvido com **Next.js App Router** e **TypeScript**. O objetivo é oferecer uma experiência de compra eficiente, permitindo ao usuário navegar por produtos, adicionar itens ao carrinho e finalizar a compra de forma prática e inovadora: o checkout é realizado via **WhatsApp**, utilizando integração com a API **GZAPPY**.  
+A interface utiliza componentes do **ShadCN UI**, garantindo design consistente, acessibilidade e facilidade de customização.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Funcionalidades Obrigatórias
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [x] Listagem de produtos por categoria
+- [x] Visualização de detalhes do produto
+- [x] Adição e remoção de produtos no carrinho
+- [x] Persistência do carrinho no localStorage
+- [x] Checkout via WhatsApp (API GZAPPY)
+- [x] Responsividade mobile e desktop
+- [x] Alternância entre temas claro/escuro (dark/light)
+- [x] Busca de produtos
+- [x] Cadastro e login de usuários
+- [x] Lista de desejos (wishlist)
+- [x] Histórico de pedidos
+- [x] Validação de formulários com feedback visual
 
-## Learn More
+### Funcionalidades Diferenciais
 
-To learn more about Next.js, take a look at the following resources:
+- [x] Integração com Supabase para autenticação e persistência de dados
+- [x] UI baseada em ShadCN (acessibilidade e personalização)
+- [x] Hooks personalizados para carrinho, wishlist e autenticação
+- [x] Animações e feedbacks visuais modernos
+- [x] SEO otimizado com Next.js
+- [x] Deploy automatizado (Vercel)
+- [x] Suporte a múltiplos idiomas (i18n-ready)
+- [x] Componentização avançada e reutilização de código
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tecnologias Utilizadas
 
-## Deploy on Vercel
+- **Next.js (App Router + TypeScript):** Framework principal, escolhido pela performance, SSR/SSG e experiência de desenvolvimento moderna.
+- **ShadCN UI:** Biblioteca de componentes React acessíveis e altamente customizáveis.
+- **Supabase:** Backend as a Service para autenticação, banco de dados e storage.
+- **Tailwind CSS:** Utilizado para estilização rápida e responsiva.
+- **Zod:** Validação de schemas e formulários.
+- **Sonner:** Biblioteca de notificações toast.
+- **Lucide React:** Ícones modernos e personalizáveis.
+- **GZAPPY API:** Integração para envio de pedidos via WhatsApp.
+- **React Hook Form:** Gerenciamento de formulários.
+- **Vercel:** Deploy e hospedagem.
+- **ESLint & Prettier:** Padronização e qualidade de código.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Justificativa:**  
+As escolhas priorizam produtividade, escalabilidade, acessibilidade e facilidade de manutenção, além de garantir uma ótima experiência para o usuário final.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## IA Utilizada
+
+Acessar documentação dedicada à esta seção no diretório [./doc/IA/prompts.md]('./doc/IA/prompts.md')
+
+- **ChatGPT (OpenAI):** Geração de código, sugestões de arquitetura, escrita de textos e README, automação de testes e refatoração.
+- **GitHub Copilot:** Auxílio na escrita de código, geração de hooks, componentes e funções utilitárias.
+- **Claude (Anthropic):** Revisão de textos, sugestões de UX e estruturação de pastas.
+- **Cursor:** Geração de trechos de código e automação de refatorações.
+- **Design.com:** Criação de wireframes e sugestões visuais para telas e componentes.
+
+**O que foi gerado por IA:**  
+Grande parte da estrutura inicial, hooks, componentes reutilizáveis, README, textos de interface e exemplos de código foram gerados ou revisados por IA.  
+**O que foi escrito manualmente:**  
+Ajustes finais, integrações específicas, lógica de negócio, configurações de ambiente e personalizações visuais.
+
+---
+
+## Arquitetura do Projeto
+
+A estrutura de pastas foi pensada para facilitar a escalabilidade e a reutilização de código.
+sgt-catalog-challenge/
+├── app/ # Rotas e páginas (Next.js App Router)
+│ ├── auth/ # Fluxos de autenticação (signin, signup, reset)
+│ ├── catalog/ # Listagem e busca de produtos
+│ ├── cart/ # Carrinho de compras
+│ └── ... # Outras rotas
+├── components/ # Componentes reutilizáveis (UI, layout, auth, header, etc)
+│ ├── header/
+│ ├── auth/
+│ └── ui/
+├── contexts/ # Contextos globais (auth, cart, wishlist)
+├── hooks/ # Hooks personalizados
+├── lib/ # Funções utilitárias e integrações externas
+├── public/ # Imagens e arquivos estáticos
+├── scripts/ # Scripts de seed e utilitários SQL
+├── doc/
+│ └── screenshots/ # Imagens para documentação
+├── styles/ # Estilos globais e configurações do Tailwind
+├── .env.local.example # Exemplo de variáveis de ambiente
+└── README.md
+
+**Responsabilidade das principais pastas:**
+
+- **app/**: Páginas e rotas do Next.js.
+- **components/**: Componentes visuais e de layout reutilizáveis.
+- **contexts/**: Providers de contexto global (ex: autenticação, carrinho).
+- **hooks/**: Hooks customizados para lógica de negócio.
+- **lib/**: Funções utilitárias, helpers e integrações externas.
+- **scripts/**: Scripts de banco de dados e automação.
+- **doc/screenshots/**: Imagens para documentação e README.
+
+---
+
+## Variáveis de Ambiente
+
+As variáveis devem ser configuradas no arquivo `.env.local` na raiz do projeto:
+
+| Variável                        | Descrição                                  |
+| ------------------------------- | ------------------------------------------ |
+| `NEXT_PUBLIC_SUPABASE_URL`      | URL do projeto Supabase                    |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Chave pública do Supabase                  |
+| `NEXT_PUBLIC_GZAPPY_API_URL`    | URL da API GZAPPY para integração WhatsApp |
+| `NEXT_PUBLIC_GZAPPY_TOKEN`      | Token de autenticação da API GZAPPY        |
+| `NEXT_PUBLIC_SITE_URL`          | URL base do site (usado para links e SEO)  |
+
+---
+
+## Como Rodar o Projeto
+
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/seu-usuario/sgt-catalog-challenge.git
+   cd sgt-catalog-challenge
+   ```
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+3. **Configure as variáveis de ambiente:**
+
+   - Renomeie o arquivo `.env.local.example` para `.env.local`.
+   - Preencha com suas credenciais e URLs do Supabase e GZAPPY.
+
+4. **Execute o projeto:**
+   ```bash
+   npm run dev
+   ```
+   Acesse em `http://localhost:3000`.
+
+---
+
+## Considerações Finais
+
+Este projeto foi desenvolvido como um desafio para a **SGT**. Agradeço pela oportunidade e feedbacks são bem-vindos!
