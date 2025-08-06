@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Heart, ShoppingCart } from "lucide-react"
-import { Header } from "@/components/header"
+import { Header } from "@/components/header/header"
 import { Breadcrumbs } from "@/components/breadcrumbs"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"

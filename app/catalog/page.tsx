@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import { Header } from "@/components/header"
+import { Header } from "@/components/header/header"
 import { ProductGrid } from "@/components/product-grid"
 import { ProductFilters } from "@/components/product-filters"
 import { Breadcrumbs } from "@/components/breadcrumbs"
@@ -11,7 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/lib/supabase"
 import type { Product } from "@/types"
 import { useAuth } from "@/contexts/auth-context"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, Loader } from "lucide-react"
 
 export default function CatalogPage() {
   const [products, setProducts] = useState<Product[]>([])
@@ -74,7 +74,9 @@ export default function CatalogPage() {
   }
 
   if (authLoading) {
-    return <div>Carregando...</div>
+    return <div className="min-h-screen bg-background grid place-items-center">
+      <Loader className="animate-spin" />
+    </div>
   }
 
   if (!user) {
@@ -106,12 +108,17 @@ export default function CatalogPage() {
 
         {/* Filters and Products */}
         <div className="flex gap-8">
-          <ProductFilters />
+          <div className="hidden  lg:flex">
+            <ProductFilters />
+          </div>
 
           <div className="flex-1">
             {/* Results Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="text-sm text-muted-foreground">
+            <div className="flex items-center justify-between lg:mb-6 mb-3">
+              <div className="lg:hidden">
+                <ProductFilters />
+              </div>
+              <div className="hidden lg:block text-sm text-muted-foreground">
                 {products.length} resultado{products.length !== 1 ? "s" : ""} para produtos
               </div>
 
@@ -132,7 +139,9 @@ export default function CatalogPage() {
                 </Select>
               </div>
             </div>
-
+            <div className="text-sm text-muted-foreground mb-3 text-center">
+              {products.length} resultado{products.length !== 1 ? "s" : ""} para produtos
+            </div>
             {/* Products Grid */}
             <ProductGrid products={products} loading={loading} />
           </div>

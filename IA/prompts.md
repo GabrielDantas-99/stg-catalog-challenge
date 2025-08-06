@@ -335,6 +335,10 @@ button; back to catalog button; product reviews and comments; "Add to Wishlist"
 button).
 ```
 
+```
+Atualize a tela de login para um design mais tecnologico e inspirado na imagem em anexo. Utilize a cor primária #155dfb com variações e gradientes para tornar o design mais limpo e atual.
+```
+
 </div>
 
 <div id="copilot">
@@ -349,6 +353,24 @@ button).
 </div>
 
 O GitHub Copilot foi integrado ao fluxo de trabalho por meio de sua extensão oficial no ambiente de desenvolvimento Visual Studio Code. Sua utilização teve como objetivo principal a correção de erros pontuais no código gerado pela ferramenta [v0](#v0), além de auxiliar na implementação de ajustes e melhorias contínuas durante a fase de manutenção. Essa integração contribuiu para um desenvolvimento mais fluido e eficiente, complementando o trabalho iniciado com as ferramentas anteriores.
+
+```
+Atualize este código para que, na resulução inferior à "md", o menu mobile seja
+exibido e os outros links/botões sejam ocultados. E, em resoluções acima de "md",
+o menu mobile seja ocultado e os demais botões sejam exibidos
+```
+
+```
+Crie subcomponentes para o componente header:
+- search bar
+- desktop actions
+- menu mobile (com o componente sheet do shadcn)
+Além disso, adapte o componente header para funcionar corretamente com os novos componentes
+```
+
+```
+Crie um AuthWrapper para reaproveitar os codigos repetidos dos components signin e signup
+```
 
 </div>
 
