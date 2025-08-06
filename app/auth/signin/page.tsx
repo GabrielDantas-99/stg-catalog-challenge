@@ -33,7 +33,8 @@ export default function SignInPage() {
   const onSubmit = async (data: SignInFormData) => {
     setLoading(true)
     try {
-      const { error } = await signIn(data.email, data.password)
+      const result = await signIn(data.email, data.password)
+      const error = result?.error
 
       if (error) {
         toast.error("Erro ao fazer login", {
@@ -43,7 +44,7 @@ export default function SignInPage() {
         toast.success("Login realizado com sucesso!")
         router.push("/catalog")
       }
-    } catch (error) {
+    } catch {
       toast.error("Erro inesperado", {
         description: "Tente novamente em alguns instantes",
       })

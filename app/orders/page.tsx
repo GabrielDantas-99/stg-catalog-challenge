@@ -63,11 +63,11 @@ export default function OrdersPage() {
 
       if (error) throw error
 
-      const ordersData = (data || []).map((order: any) => ({
+      const ordersData = (data || []).map((order) => ({
         id: order.id,
         total: order.total,
         created_at: order.created_at,
-        order_items: (order.order_items || []).map((item: any) => ({
+        order_items: (order.order_items || []).map((item) => ({
           quantity: item.quantity,
           price: item.price,
           products: Array.isArray(item.products)

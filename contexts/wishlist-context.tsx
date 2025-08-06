@@ -35,16 +35,18 @@ export function WishlistProvider({ children }: { children: React.ReactNode }) {
 
     setLoading(true)
     try {
+      type WishlistRow = {
+        products: Product
+      }
+
       const { data, error } = await supabase
         .from("wishlist")
-        .select(`
-          products (*)
-        `)
-        .eq("user_id", user.id)
+        .select("products(*)")
+        .eq("user_id", user.id) as { data: WishlistRow[] | null, error: any }
 
       if (error) throw error
 
-      const wishlistItems = data.map((item) => item.products as Product)
+      const wishlistItems = (data ?? []).map((item) => item.products)
       setItems(wishlistItems)
     } catch (error) {
       console.error("Erro ao carregar lista de desejos:", error)

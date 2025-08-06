@@ -51,7 +51,7 @@ export default function SignUpPage() {
         })
         router.push("/auth/signin")
       }
-    } catch (error) {
+    } catch {
       toast.error("Erro inesperado", {
         description: "Tente novamente em alguns instantes",
       })

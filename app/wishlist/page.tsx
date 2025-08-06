@@ -11,13 +11,14 @@ import { useWishlist } from "@/contexts/wishlist-context"
 import { useCart } from "@/contexts/cart-context"
 import { useAuth } from "@/contexts/auth-context"
 import { formatPrice } from "@/lib/utils"
+import { Product } from "@/types"
 
 export default function WishlistPage() {
   const { items, removeItem } = useWishlist()
   const { addItem } = useCart()
   const { user } = useAuth()
 
-  const handleAddToCart = async (product: any) => {
+  const handleAddToCart = async (product: Product) => {
     await addItem(product)
   }
 
