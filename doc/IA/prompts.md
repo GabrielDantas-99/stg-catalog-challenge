@@ -388,7 +388,7 @@ Crie um AuthWrapper para reaproveitar os codigos repetidos dos components signin
 A ferramenta de geração de imagens da [Design.com](https://design.com) foi utilizada para a criação da logo e do favicon do sistema, com o objetivo de conferir um design mais profissional e tecnológico. Essa abordagem contribuiu para gerar autenticidade visual e proporcionar uma experiência mais positiva e confiável ao usuário.
 
 <div style="display: flex; justify-content:space-between">
-    <img src="../public/sgt_store_logo_light.png" />
+    <img src="https://github.com/GabrielDantas-99/stg-catalog-challenge/blob/develop/public/sgt_store_logo_light.png" />
 </div>
 
 </div>
