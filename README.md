@@ -116,18 +116,18 @@ sgt-catalog-challenge/
 
 Para o envio automatizado de mensagens contendo os dados do pedido do cliente via WhatsApp, foi integrada a [API da GZAPPY](https://v2.gzappy.com/) (versão de testes). Essa integração permitiu a comunicação direta entre o sistema e o número de atendimento, proporcionando uma experiência mais ágil e eficiente para notificações de pedidos.
 
-⚠️ **Limitação:**  
+**Limitação:**  
 A versão gratuita de testes da API utilizada possui um período de validade de apenas 3 dias, restringindo temporariamente a disponibilidade dessa funcionalidade em produção.
 
-📽️ **Demonstração:**  
+**Demonstração:**  
 Apesar da limitação, a integração foi concluída com sucesso e está demonstrada no vídeo disponível neste [link do Google Drive](https://drive.google.com/file/d/1omoPu5teH13HPjrNvB04JV5ZhVB4DPUu/view?usp=drive_link), evidenciando seu funcionamento real.
 
-### 🔗 Endpoint utilizado:
+### Endpoint utilizado:
 ```
 POST https://WHATSAPP_API_URL/message/send-text
 ```
 
-### 📦 Exemplo de Payload:
+### Exemplo de Payload:
 ```json
 {
   "phone": process.env.WHATSAPP_RECEIVER_PHONE,
