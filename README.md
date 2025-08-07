@@ -130,7 +130,7 @@ POST https://WHATSAPP_API_URL/message/send-text
 ### Exemplo de Payload:
 ```json
 {
-  "phone": process.env.WHATSAPP_RECEIVER_PHONE,
+  "phone": WHATSAPP_RECEIVER_PHONE,
   "message": "Detalhes do pedido..."
 }
 ```
