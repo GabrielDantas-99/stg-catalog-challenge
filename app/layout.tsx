@@ -29,7 +29,7 @@ export default function RootLayout({
             <CartProvider>
               <WishlistProvider>
                 {children}
-                <Toaster position="top-right" richColors closeButton duration={2000} />
+                <Toaster position="top-center" richColors closeButton duration={2000} />
               </WishlistProvider>
             </CartProvider>
           </AuthProvider>
